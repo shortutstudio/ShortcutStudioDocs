@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1220" />
+    <title>Privacy Policy · ShortcutStudio</title>
+    <meta name="description" content="ShortcutStudio privacy policy." />
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-title">ShortcutStudio</div>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="../">Home</a>
+          <a href="./" aria-current="page">Privacy</a>
+          <a href="../support/">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <article class="doc">
+        <h1>Privacy Policy</h1>
+        <p class="muted">ShortcutStudio is designed to be privacy-minded. This page explains what data is stored, where it is stored, and how to revoke access.</p>
+
+        <h2>What ShortcutStudio stores</h2>
+        <p class="muted">ShortcutStudio stores the minimum data required to connect your third‑party accounts and execute requests from the app and Shortcuts:</p>
+        <ul>
+          <li><strong>OAuth tokens</strong> (access tokens and, when issued by the provider, refresh tokens) for connected services.</li>
+          <li><strong>Connector configuration</strong> (which services you connected, display names, and connection status).</li>
+          <li><strong>Diagnostics and connector issue summaries</strong> (optional, user-controlled; intended to help you understand failures like “auth expired” or “offline” without exposing secrets).</li>
+        </ul>
+        <p class="muted">ShortcutStudio does <strong>not</strong> intentionally collect or store your passwords for these services.</p>
+
+        <h2>Where data is stored</h2>
+        <ul>
+          <li><strong>Tokens are stored in the system Keychain</strong> (iOS/iPadOS/macOS). The operating system provides encryption-at-rest and access controls for Keychain items.</li>
+          <li>Non-sensitive app state (for example, connection display names and issue summaries) is stored using platform-appropriate app storage. Some connector issue summaries are stored in an App Group container so the app and Shortcuts extension can share the same status.</li>
+        </ul>
+
+        <h2>Authentication method</h2>
+        <ul>
+          <li>ShortcutStudio uses <strong>ASWebAuthenticationSession</strong> for OAuth sign-in.</li>
+          <li>ShortcutStudio does <strong>not</strong> use embedded webviews for sign-in.</li>
+        </ul>
+
+        <h2>Requested scopes and why</h2>
+        <p class="muted">ShortcutStudio requests only the scopes required to support the connector features that the app exposes.</p>
+        <h3>GitHub</h3>
+        <ul>
+          <li>Scope: <code>repo</code></li>
+          <li>Why: read repository issues for “List Issues”.</li>
+        </ul>
+        <h3>Jira (Atlassian)</h3>
+        <ul>
+          <li>Scope: <code>read:jira-work</code></li>
+          <li>Why: search issues using JQL for “Search Issues”.</li>
+        </ul>
+        <h3>Notion</h3>
+        <ul>
+          <li>Scope: <code>read_content</code></li>
+          <li>Why: search pages/databases for “Search”.</li>
+        </ul>
+        <h3>Todoist</h3>
+        <ul>
+          <li>Scope: <code>data:read</code></li>
+          <li>Why: read tasks for “List Tasks”.</li>
+        </ul>
+        <h3>Spotify</h3>
+        <ul>
+          <li>Scope: <code>user-read-recently-played</code></li>
+          <li>Why: fetch recently played tracks for “Recently Played”.</li>
+        </ul>
+
+        <h2>Disconnecting and revoking access</h2>
+        <p class="muted">ShortcutStudio supports disconnecting a service at any time:</p>
+        <ul>
+          <li><strong>Disconnect in-app</strong>: removing a connection deletes its tokens from Keychain immediately and updates the UI state.</li>
+          <li><strong>Revocation (when supported by the provider)</strong>: the app will attempt to revoke the token server-side during disconnect.</li>
+          <li><strong>Provider-side revocation</strong>: you can always revoke ShortcutStudio’s access from the provider’s security/application settings page; after revocation, ShortcutStudio will surface an “auth expired/needs attention” state until you reconnect.</li>
+        </ul>
+
+        <h2>Diagnostics and privacy</h2>
+        <p class="muted">If diagnostics are enabled, ShortcutStudio records high-level request outcomes (success/failure, short cause, timestamps) and exports anonymized traces. Secrets (tokens, authorization codes) should not be included in exports.</p>
+
+        <h2>Contact</h2>
+        <p class="muted">
+          Email: <a href="mailto:shortcutstudio61@gmail.com">shortcutstudio61@gmail.com</a>
+        </p>
+
+        <footer>
+          GitHub, Jira, Notion, Todoist, and Spotify are trademarks of their respective owners. This app is not
+          affiliated with or endorsed by them.
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>
